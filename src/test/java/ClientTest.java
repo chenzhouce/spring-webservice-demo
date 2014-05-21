@@ -35,12 +35,14 @@ public class ClientTest {
 
     @Test
     public void testSourceSend() throws Exception {
-        Source requestPayload = new StringSource(
-            "<user>" +
-            "<id>1</id>" +
-            "<name>John Doe</name>" +
-            "</user>"
-        );
+        User user = new User(1, "chenzhouce");
+
+        StringWriter prepareData = new StringWriter();
+        webServiceTemplate.getMarshaller().marshal(user, new StreamResult(prepareData));
+        String userString = prepareData.toString();
+
+
+        Source requestPayload = new StringSource(userString);
         StringWriter sw = new StringWriter();
         StreamResult result = new StreamResult(sw);
         boolean ret =  webServiceTemplate.sendSourceAndReceiveToResult(uri, requestPayload, result);
@@ -48,8 +50,8 @@ public class ClientTest {
         System.out.println(sw);
 
         Source resultSource = new StringSource(sw.toString());
-        User user = (User) webServiceTemplate.getUnmarshaller().unmarshal(resultSource);
-        System.out.println(user);
+        User returnUser = (User) webServiceTemplate.getUnmarshaller().unmarshal(resultSource);
+        System.out.println(returnUser);
     }
 
     @Test
