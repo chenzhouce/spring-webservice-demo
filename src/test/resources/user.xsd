@@ -3,16 +3,8 @@
     <xs:element name="user">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="id" type="int"/>
-                <xs:element name="name" type="string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="book">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="id" type="int"/>
-                <xs:element name="name" type="string"/>
+                <xs:element name="id" type="xs:int"/>
+                <xs:element name="name" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

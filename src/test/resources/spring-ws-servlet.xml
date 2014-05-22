@@ -20,7 +20,6 @@
     <bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
         <property name="marshaller" ref="jaxbMarshallerBean"/>
         <property name="unmarshaller" ref="jaxbMarshallerBean"/>
-
     </bean>
 
 </beans>
