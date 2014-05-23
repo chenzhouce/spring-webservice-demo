@@ -1,12 +1,13 @@
 package com.zchen;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Zhouce Chen
  * @version May 19, 2014
  */
-@XmlRootElement(name = "user")
+@XmlRootElement(name = "user",namespace = "http://mycompany.com/hr/schemas")
 public class User {
     private int id;
 
@@ -24,6 +25,7 @@ public class User {
         return id;
     }
 
+    @XmlElement(namespace = "http://mycompany.com/hr/schemas")
     public void setId(int id) {
         this.id = id;
     }
@@ -32,6 +34,7 @@ public class User {
         return name;
     }
 
+    @XmlElement(namespace = "http://mycompany.com/hr/schemas")
     public void setName(String name) {
         this.name = name;
     }

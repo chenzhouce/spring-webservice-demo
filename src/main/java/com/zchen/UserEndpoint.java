@@ -13,7 +13,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class UserEndpoint {
 
-    @PayloadRoot(localPart = "user")
+    @PayloadRoot(localPart = "user", namespace = "http://mycompany.com/hr/schemas")
     @ResponsePayload
     public User handle(@RequestPayload User user) throws Exception {
         user.setId(2);
