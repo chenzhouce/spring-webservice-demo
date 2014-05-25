@@ -22,4 +22,8 @@
         <property name="unmarshaller" ref="jaxbMarshallerBean"/>
     </bean>
 
+    <sws:interceptors>
+        <bean class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"/>
+    </sws:interceptors>
+
 </beans>
